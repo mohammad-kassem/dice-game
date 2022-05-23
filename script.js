@@ -1,14 +1,15 @@
 function playDice(){
-    let dice_number =  Math.floor(Math.random() * 6) + 1;
-    return dice_number;
+    let dice_number_palyer1 =  Math.floor(Math.random() * 6) + 1;
+    let dice_number_palyer2 =  Math.floor(Math.random() * 6) + 1;
+    return [dice_number_palyer1, dice_number_palyer2];
 
 }
 
-function displayDice(dice_number){
+function displayDice(dice_number_palyer1, dice_number_player2){
     image = document.getElementsByTagName("img")[0];
-    image.src = `./images/dice${dice_number}.png`;
+    image.src = `./images/dice${dice_number_palyer1}.png`;
     image = document.getElementsByTagName("img")[1];
-    image.src = `./images/dice${dice_number}.png`;
+    image.src = `./images/dice${dice_number_player2}.png`;
 }
 
 function gameStatus(player1_number, player2_number){
@@ -30,8 +31,8 @@ function gameStatus(player1_number, player2_number){
 
 function game(){
     dice_number = playDice();
-    displayDice(dice_number);
-    gameStatus(dice_number, dice_number);
+    displayDice(dice_number[0], dice_number[1]);
+    gameStatus(dice_number[0], dice_number[1]);
 }
 
 game();
